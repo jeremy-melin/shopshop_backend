@@ -18,7 +18,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDTO> findAll() {
-        return this.productRepository.findAll().stream().map(ProductDTO::new).toList();
+        return productRepository.findAll().stream().map(ProductDTO::new).toList();
+    }
+
+    @Override
+    public ProductDTO save(ProductDTO productDTO) {
+        return new ProductDTO(productRepository.save(productDTO.toProductEntity()));
     }
     
 }

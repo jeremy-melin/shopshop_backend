@@ -6,4 +6,5 @@ import com.shopshop.shopshop_backend.dtos.ProductDTO;
 
 public interface ProductService {
     List<ProductDTO> findAll();
+    ProductDTO save(ProductDTO productDTO);
 }

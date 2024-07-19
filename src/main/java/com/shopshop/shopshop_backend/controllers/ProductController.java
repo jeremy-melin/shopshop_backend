@@ -2,12 +2,16 @@ package com.shopshop.shopshop_backend.controllers;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.shopshop.shopshop_backend.dtos.ProductDTO;
 import com.shopshop.shopshop_backend.services.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/products")
@@ -26,6 +30,13 @@ public class ProductController {
 
     @GetMapping("/all")
     public List<ProductDTO> getAllProducts() {
-        return this.productService.findAll();
+        return productService.findAll();
     }
+
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
+        return productService.save(productDTO);
+    }
+    
 }

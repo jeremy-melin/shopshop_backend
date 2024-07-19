@@ -2,6 +2,8 @@ package com.shopshop.shopshop_backend.repositories;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
+
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import com.shopshop.shopshop_backend.domain.ProductEntity;
@@ -29,5 +31,12 @@ public class MongoDbProductRepository implements ProductRepository {
     @Override
     public List<ProductEntity> findAll() {
         return collection.find().into(new ArrayList<>());
+    }
+
+    @Override
+    public ProductEntity save(ProductEntity productEntity) {
+        productEntity.setId(new ObjectId());
+        collection.insertOne(productEntity);
+        return productEntity;
     }
 }

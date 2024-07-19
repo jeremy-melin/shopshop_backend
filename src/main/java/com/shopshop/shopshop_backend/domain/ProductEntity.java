@@ -26,6 +26,11 @@ public class ProductEntity {
         return this.id;
     }
 
+    public ProductEntity setId(ObjectId id) {
+        this.id = id;
+        return this;
+    }
+
     public String getName() {
         return this.name;
     }

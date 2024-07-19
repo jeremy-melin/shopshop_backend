@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository {
     List<ProductEntity> findAll();
+    ProductEntity save(ProductEntity productEntity);
 }
