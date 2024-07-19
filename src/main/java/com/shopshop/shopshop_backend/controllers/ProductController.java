@@ -38,5 +38,11 @@ public class ProductController {
     public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
         return productService.save(productDTO);
     }
+
+    @DeleteMapping("/{id}")
+    public Long deleteProduct(@PathVariable String id) {
+        return productService.delete(id);
+    }
+    
     
 }

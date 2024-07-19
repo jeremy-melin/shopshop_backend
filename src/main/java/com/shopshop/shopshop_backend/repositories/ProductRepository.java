@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductRepository {
     List<ProductEntity> findAll();
     ProductEntity save(ProductEntity productEntity);
+    Long delete(String id);
 }

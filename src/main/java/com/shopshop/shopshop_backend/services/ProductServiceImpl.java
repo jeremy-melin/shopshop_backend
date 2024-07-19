@@ -25,5 +25,10 @@ public class ProductServiceImpl implements ProductService {
     public ProductDTO save(ProductDTO productDTO) {
         return new ProductDTO(productRepository.save(productDTO.toProductEntity()));
     }
+
+    @Override
+    public long delete(String id) {
+        return productRepository.delete(id);
+    }
     
 }
