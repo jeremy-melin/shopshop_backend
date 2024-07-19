@@ -30,12 +30,27 @@ public class ProductEntity {
         return this.name;
     }
 
+    public ProductEntity setName(String name) {
+        this.name = name;
+        return this;
+    }
+
     public String getPrice() {
         return this.price;
     }
 
+    public ProductEntity setPrice(String price) {
+        this.price = price;
+        return this;
+    }
+
     public String getStock() {
         return this.stock;
+    }
+
+    public ProductEntity setStock(String stock) {
+        this.stock = stock;
+        return this;
     }
 
 
